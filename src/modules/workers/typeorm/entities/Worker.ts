@@ -18,6 +18,9 @@ class Worker {
   password: string;
 
   @Column()
+  department: string;
+
+  @Column()
   first_name: string;
 
   @Column()

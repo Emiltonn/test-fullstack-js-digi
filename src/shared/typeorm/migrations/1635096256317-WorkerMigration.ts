@@ -21,6 +21,10 @@ export class WorkerMigration1635096256317 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'department',
+            type: 'varchar',
+          },
+          {
             name: 'fisrt_name',
             type: 'varchar',
           },
