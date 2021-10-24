@@ -1,9 +1,10 @@
 import AppError from '@shared/errors/AppError';
-import { WorkerRepository } from './../typeorm/repositories/WorkersRepository';
 import { getCustomRepository } from 'typeorm';
+import { WorkerRepository } from '../typeorm/repositories/WorkersRepository';
 import Worker from '../typeorm/entities/Worker';
 
 interface IRequest {
+  idworker: number;
   cpf: string;
   password: string;
   department: string;
@@ -11,8 +12,9 @@ interface IRequest {
   last_name: string;
 }
 
-class CreateWorkerService {
+class UpdateWorkerService {
   public async execute({
+    idworker,
     cpf,
     password,
     department,
@@ -20,19 +22,26 @@ class CreateWorkerService {
     last_name,
   }: IRequest): Promise<Worker> {
     const workersRepository = getCustomRepository(WorkerRepository);
+
+    const worker = await workersRepository.findOne(idworker);
+
+    //se o produtos não existir
+    if (!worker) {
+      throw new AppError('Worker not found.');
+    }
+
     const workerExists = await workersRepository.findByCpf(cpf);
 
-    if (workerExists) {
+    //se o produto existir
+    if (workerExists && cpf != worker.cpf) {
       throw new AppError('There is already one worker with this CPF');
     }
 
-    const worker = workersRepository.create({
-      cpf,
-      password,
-      department,
-      first_name,
-      last_name,
-    });
+    worker.cpf = cpf;
+    worker.password = password;
+    worker.department = department;
+    worker.first_name = first_name;
+    worker.last_name = last_name;
 
     await workersRepository.save(worker);
 
@@ -40,4 +49,4 @@ class CreateWorkerService {
   }
 }
 
-export default CreateWorkerService;
+export default UpdateWorkerService;
