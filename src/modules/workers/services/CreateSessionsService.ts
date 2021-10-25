@@ -3,6 +3,7 @@ import { WorkerRepository } from './../typeorm/repositories/WorkersRepository';
 import { getCustomRepository } from 'typeorm';
 import Worker from '../typeorm/entities/Worker';
 import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 
 interface IRequest {
   cpf: string;
@@ -11,6 +12,7 @@ interface IRequest {
 
 interface IResponse {
   worker: Worker;
+  token: string;
 }
 
 class CreateSessionsService {
@@ -30,7 +32,15 @@ class CreateSessionsService {
 
     await workersRepository.save(worker);
 
-    return worker;
+    const token = sign({}, '26444d42d43106934e524a1262204e7d', {
+      subject: worker.id,
+      expiresIn: '30min', //ou 1800000 (milissegundos)
+    });
+
+    return {
+      worker,
+      token,
+    };
   }
 }
 
