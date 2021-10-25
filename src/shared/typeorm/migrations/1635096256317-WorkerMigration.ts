@@ -16,6 +16,7 @@ export class WorkerMigration1635096256317 implements MigrationInterface {
           {
             name: 'cpf',
             type: 'varchar',
+            isUnique: true,
           },
           {
             name: 'password',
