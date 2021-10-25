@@ -2,6 +2,7 @@ import AppError from '@shared/errors/AppError';
 import { WorkerRepository } from './../typeorm/repositories/WorkersRepository';
 import { getCustomRepository } from 'typeorm';
 import Worker from '../typeorm/entities/Worker';
+import { hash } from 'bcryptjs';
 
 interface IRequest {
   cpf: string;
@@ -26,9 +27,11 @@ class CreateWorkerService {
       throw new AppError('There is already one worker with this CPF');
     }
 
+    const hashedPassword = await hash(password, 8);
+
     const worker = workersRepository.create({
       cpf,
-      password,
+      password: hashedPassword,
       department,
       first_name,
       last_name,
