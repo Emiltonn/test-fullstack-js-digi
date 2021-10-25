@@ -1,9 +1,8 @@
+import workersRouter from '@modules/workers/routes/workers.routes';
 import { Router } from 'express';
 
 const routes = Router();
 
-routes.get('/', (request, response) => {
-  return response.json({ message: 'Hello Dev API udemy' });
-});
+routes.use('/workers', workersRouter);
 
 export default routes;

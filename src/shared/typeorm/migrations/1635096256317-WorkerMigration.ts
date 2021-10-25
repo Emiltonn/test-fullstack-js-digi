@@ -8,9 +8,10 @@ export class WorkerMigration1635096256317 implements MigrationInterface {
         columns: [
           {
             name: 'idworker',
-            type: 'int', //tipo unico universal ou inteiro
+            type: 'uuid', //tipo unico universal
             isPrimary: true, //é chave primaria
-            generationStrategy: 'increment', //quando for inteiro, auto increment, utilize 'increment'
+            generationStrategy: 'uuid', //quando for inteiro, auto increment, utilize 'increment'
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'cpf',
@@ -25,7 +26,7 @@ export class WorkerMigration1635096256317 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'fisrt_name',
+            name: 'first_name',
             type: 'varchar',
           },
           {

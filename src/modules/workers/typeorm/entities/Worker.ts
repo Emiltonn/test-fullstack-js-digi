@@ -8,8 +8,8 @@ import {
 
 @Entity('workers')
 class Worker {
-  @PrimaryGeneratedColumn('increment')
-  idworker: number;
+  @PrimaryGeneratedColumn('uuid')
+  idworker: string;
 
   @Column()
   cpf: string;

@@ -4,7 +4,7 @@ import { WorkerRepository } from '../typeorm/repositories/WorkersRepository';
 import Worker from '../typeorm/entities/Worker';
 
 interface IRequest {
-  idworker: number;
+  idworker: string;
   cpf: string;
   password: string;
   department: string;
@@ -25,14 +25,14 @@ class UpdateWorkerService {
 
     const worker = await workersRepository.findOne(idworker);
 
-    //se o produtos não existir
+    //se o colaborador não existir
     if (!worker) {
       throw new AppError('Worker not found.');
     }
 
     const workerExists = await workersRepository.findByCpf(cpf);
 
-    //se o produto existir
+    //se o colaborador existir
     if (workerExists && cpf != worker.cpf) {
       throw new AppError('There is already one worker with this CPF');
     }
