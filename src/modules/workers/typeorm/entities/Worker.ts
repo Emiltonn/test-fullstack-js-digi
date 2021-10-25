@@ -9,7 +9,7 @@ import {
 @Entity('workers')
 class Worker {
   @PrimaryGeneratedColumn('uuid')
-  idworker: string;
+  id: string;
 
   @Column()
   cpf: string;

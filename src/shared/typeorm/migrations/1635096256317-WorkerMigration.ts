@@ -7,7 +7,7 @@ export class WorkerMigration1635096256317 implements MigrationInterface {
         name: 'workers',
         columns: [
           {
-            name: 'idworker',
+            name: 'id',
             type: 'uuid', //tipo unico universal
             isPrimary: true, //é chave primaria
             generationStrategy: 'uuid', //quando for inteiro, auto increment, utilize 'increment'

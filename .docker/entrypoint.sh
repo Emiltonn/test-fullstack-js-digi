@@ -1,6 +1,6 @@
 #!/bin/bash
 
 yarn install
-yarn run typeorm migration:run
-yarn run dev
+yarn typeorm migration:run
+yarn dev
 chmod +x .docker/entrypoint.sh

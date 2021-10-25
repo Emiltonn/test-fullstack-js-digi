@@ -16,11 +16,11 @@ export default class WorkersController {
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
-    const { idworker } = request.params;
+    const { id } = request.params;
 
     const showWorker = new ShowWorkerService();
 
-    const worker = await showWorker.execute({ idworker });
+    const worker = await showWorker.execute({ id });
 
     return response.json(worker);
   }
@@ -43,12 +43,12 @@ export default class WorkersController {
 
   public async update(request: Request, response: Response): Promise<Response> {
     const { cpf, password, department, first_name, last_name } = request.body;
-    const { idworker } = request.params;
+    const { id } = request.params;
 
     const updateWorker = new UpdateWorkerService();
 
     const worker = await updateWorker.execute({
-      idworker,
+      id,
       cpf,
       password,
       department,
@@ -60,11 +60,11 @@ export default class WorkersController {
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
-    const { idworker } = request.params;
+    const { id } = request.params;
 
     const deleteWorker = new DeleteWorkerService();
 
-    await deleteWorker.execute({ idworker });
+    await deleteWorker.execute({ id });
 
     return response.json([]);
   }

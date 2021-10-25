@@ -4,14 +4,14 @@ import { WorkerRepository } from '../typeorm/repositories/WorkersRepository';
 import Worker from '../typeorm/entities/Worker';
 
 interface IRequest {
-  idworker: string; //primarykey
+  id: string; //primarykey
 }
 
 class ShowWorkerService {
-  public async execute({ idworker }: IRequest): Promise<Worker> {
+  public async execute({ id }: IRequest): Promise<Worker> {
     const workerRepository = getCustomRepository(WorkerRepository);
 
-    const worker = await workerRepository.findOne(idworker);
+    const worker = await workerRepository.findOne(id);
 
     if (!worker) {
       throw new AppError('Worker not found.');

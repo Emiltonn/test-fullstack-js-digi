@@ -4,7 +4,7 @@ import { WorkerRepository } from '../typeorm/repositories/WorkersRepository';
 import Worker from '../typeorm/entities/Worker';
 
 interface IRequest {
-  idworker: string;
+  id: string;
   cpf: string;
   password: string;
   department: string;
@@ -14,7 +14,7 @@ interface IRequest {
 
 class UpdateWorkerService {
   public async execute({
-    idworker,
+    id,
     cpf,
     password,
     department,
@@ -23,7 +23,7 @@ class UpdateWorkerService {
   }: IRequest): Promise<Worker> {
     const workersRepository = getCustomRepository(WorkerRepository);
 
-    const worker = await workersRepository.findOne(idworker);
+    const worker = await workersRepository.findOne(id);
 
     //se o colaborador não existir
     if (!worker) {
