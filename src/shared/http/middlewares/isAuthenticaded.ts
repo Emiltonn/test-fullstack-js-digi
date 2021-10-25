@@ -18,7 +18,8 @@ export default function isAuthenticaded(
 
   //verifica se o token fi criado com essa secret
   try {
-    const decodeToken = verify(token, authConfig.jwt.secret);
+    const decodedToken = verify(token, authConfig.jwt.secret);
+
     return next();
   } catch {
     throw new AppError('Invalid JWT Token.');

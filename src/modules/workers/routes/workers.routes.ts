@@ -1,7 +1,7 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
 import WorkersController from '../controllers/WorkersController';
-import isAuthenticaded from '../middlewares/isAuthenticaded';
+import isAuthenticaded from '../../../shared/http/middlewares/isAuthenticaded';
 
 const workersRouter = Router();
 const workersController = new WorkersController();
