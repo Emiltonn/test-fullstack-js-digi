@@ -1,11 +1,12 @@
 import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
 import WorkersController from '../controllers/WorkersController';
+import isAuthenticaded from '../middlewares/isAuthenticaded';
 
 const workersRouter = Router();
 const workersController = new WorkersController();
 
-workersRouter.get('/', workersController.index);
+workersRouter.get('/', isAuthenticaded, workersController.index);
 
 workersRouter.get(
   '/:id',

@@ -4,6 +4,7 @@ import { getCustomRepository } from 'typeorm';
 import Worker from '../typeorm/entities/Worker';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
+import authConfig from '@config/auth';
 
 interface IRequest {
   cpf: string;
@@ -32,9 +33,9 @@ class CreateSessionsService {
 
     await workersRepository.save(worker);
 
-    const token = sign({}, '26444d42d43106934e524a1262204e7d', {
+    const token = sign({}, authConfig.jwt.secret, {
       subject: worker.id,
-      expiresIn: '30min', //ou 1800000 (milissegundos)
+      expiresIn: authConfig.jwt.expiresIn,
     });
 
     return {
