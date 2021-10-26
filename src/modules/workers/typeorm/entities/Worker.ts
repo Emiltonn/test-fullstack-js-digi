@@ -1,7 +1,9 @@
+import Department from '@modules/departments/typeorm/entities/Department';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -11,14 +13,14 @@ class Worker {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @ManyToOne(() => Department, department => department.workers)
+  department: Department;
+
   @Column()
   cpf: string;
 
   @Column()
   password: string;
-
-  @Column()
-  department: string;
 
   @Column()
   first_name: string;
