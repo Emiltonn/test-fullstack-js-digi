@@ -10,5 +10,6 @@ coverage
 ormconfig.json
 dist
 
+yarn-error.log
 uploads/*
 !uploads/.gitkeep
