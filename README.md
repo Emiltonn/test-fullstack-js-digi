@@ -34,7 +34,7 @@ Linux, Windows e macOS:
 
 ```
 git clone git@github.com:Emiltonn/test-fullstack-js-digi.git
-cd ltest-fullstack-js-digi
+cd test-fullstack-js-digi
 ```
 ```
 docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d
