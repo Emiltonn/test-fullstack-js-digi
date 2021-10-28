@@ -64,6 +64,15 @@ To install with Docker, run following commands:
 
 Encontram-se nas pastas routes do projeto.
 
+Request headers
+
+| **Required** 	| **Key**              	| **Value**            	|
+|----------	|------------------	|------------------	|
+| Yes      	| Content-Type     	| application/json 	|
+| Yes      	| X-Requested-With 	| XMLHttpRequest   	|
+| Yes     	| Authorization    	| Token {JWT}      	|
+
+
 ## 📫 Contribuindo para o projeto
 
 
