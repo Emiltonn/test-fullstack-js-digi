@@ -3,7 +3,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/Emiltonn/test-fullstack-js-digi?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/Emiltonn/test-fullstack-js-digi?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/Emiltonn/test-fullstack-js-digi?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/Emiltonn/test-fullstack-js-digi?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/github/issues/Emiltonn/test-fullstack-js-digi?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/Emiltonn/test-fullstack-js-digi?style=for-the-badge)
 
 > Cadastro de colaboradores e listagem por setor.
