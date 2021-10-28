@@ -24,23 +24,25 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você instalou a versão mais recente de `<NodeJs, Docker, Docker-compose, Yarn>`
 - Você tem uma máquina `<Windows / Linux / Mac>`.
 
-## 🚀 Instalan
+## 🚀 Baixando e Instalando
 
-Para instalar, siga estas etapas:
+Para instalar com Docker, siga estas etapas:
 
 No seu terminal, com o docker rodando.
 
 Linux, Windows e macOS:
 
 ```
+git clone git@github.com:Emiltonn/test-fullstack-js-digi.git
+cd ltest-fullstack-js-digi
+```
+```
 docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d
 
 ```
-
 ```
 yarn install
 ```
-
 ```
 yarn typeorm migration:run
 ```
@@ -52,14 +54,15 @@ chmod +x .docker/entrypoint.sh
 ```
 yarn dev
 
-```
+Agora a API pode ser acessada através da URL:
 
+http://localhost:8000/workers
 ```
+To install with Docker, run following commands:
 
 ## Rotas API
 
 Encontram-se nas pastas routes do projeto.
-
 
 ## 📫 Contribuindo para o projeto
 
@@ -74,4 +77,3 @@ Para contribuir com <nome_do_projeto>, siga estas etapas:
 
 Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-```
